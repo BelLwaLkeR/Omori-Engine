@@ -68,8 +68,8 @@
 			return m_pPtr.owner_before(ptr);
 		}
 
-		util::SharedPtr<T> lock() {
-			return util::SharedPtr<T>(m_pPtr.lock());
+		SharedPtr<T> lock() {
+			return SharedPtr<T>(m_pPtr.lock());
 		}
 
 		WeakPtr<T>& operator=(const SharedPtr<T>& ptr) {

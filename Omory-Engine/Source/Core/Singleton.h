@@ -1,8 +1,8 @@
 #pragma once
-#include <Source/SmartPtr.h>
+#include <Source/Core/SmartPtr.h>
 
 
-template<typename T>
+template<class T>
 class Singleton {
 public:
 
@@ -29,10 +29,11 @@ private:
 
 	const Singleton& operator=(const Singleton& other) {}
 	static void createInstance() {
-		m_pInstance = util::makeShared<T>();
+		m_pInstance = makeShared<T>();
 		m_pInstance->initialize();
 	}
 
 };
+
 template<typename T>
-SharedPtr<T> Singleton<T>::m_pInstance =  util::makeShared<T>();
+SharedPtr<T> Singleton<T>::m_pInstance =  makeShared<T>();

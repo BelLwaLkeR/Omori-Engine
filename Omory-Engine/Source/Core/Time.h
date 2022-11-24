@@ -1,17 +1,18 @@
 #pragma once
 #include <chrono>
-#include <Source/Singleton.h>
+#include <Source/Core/Singleton.h>
 
 class Time: public Singleton<Time>
 {
 public:
   float DeltaTime();
-  void SetFPS();
   bool WaitFPS();
+  void SetTargetFPS(int targetFPS);
 
 
 private:
-  float targetFPS;
   float actualFPS;
+  float targetFPS;
+
 
 };

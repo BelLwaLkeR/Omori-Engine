@@ -1,25 +1,20 @@
 #pragma once
 #include <Windows.h>
 #include <string>
+#include <Source/Core/Platform/APlatform.h>
+namespace Omory{
+  class Application
+  {
+  public:
+    Application();
+    ~Application();
+    EApplicationCallback CreateDevice();
+    EApplicationCallback Initialize();
+    EApplicationCallback Update();
+    void Shutdown();
+    void Run();
 
-namespace Omory::System {
-    class Application
-    {
-    public:
-      enum class EApplicationCallback
-      {
-        RUNNING,
-        EXIT,
-        _END_
-      };
-
-    public:
-      Application();
-      ~Application();
-      EApplicationCallback ApplicationMain();
-
-    private:
-
-    };
-
-  }
+  private:
+    APlatform* platform;
+  };
+}

@@ -13,7 +13,9 @@ namespace Omory
 		// APlatform ÇâÓÇµÇƒåpè≥Ç≥ÇÍÇ‹ÇµÇΩ
 		virtual Response CreateDevice() override;
 		virtual Response LoopDevide() override;
-		virtual void Shutdown() override;
+		virtual Response Shutdown() override;
+		virtual Response UpdatePlatformInfo() override;
+
 		static LPCWSTR Str2LpCWstr(const std::string& str);
 		static RECT Rectangle2RECT(const Rectangle& rectangle);
 		
@@ -23,8 +25,5 @@ namespace Omory
 		WNDCLASSEX wndClassEx;
 		HWND hWindow;
 		MSG message;
-
-		// APlatform ÇâÓÇµÇƒåpè≥Ç≥ÇÍÇ‹ÇµÇΩ
-		virtual void UpdatePlatformInfo() override;
 	};
 }

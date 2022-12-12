@@ -1,5 +1,4 @@
 #include <Source/Application.h>
-#include <Source/Core/Platform/EApplicationCallback.h>
 #include <Source/Core/Platform/Windows.h>
 
 Omory::Application::Application()
@@ -11,19 +10,19 @@ Omory::Application::~Application()
   delete platform;
 }
 
-Omory::EApplicationCallback Omory::Application::CreateDevice()
+Omory::Response Omory::Application::CreateDevice()
 {
   platform = new Windows("", 1280, 720, 60);
-  EApplicationCallback ac = platform->CreateDevice();
+  Response ac = platform->CreateDevice();
   return ac;
 }
 
-Omory::EApplicationCallback Omory::Application::Initialize()
+Omory::Response Omory::Application::Initialize()
 {
-  return EApplicationCallback::RUNNING;
+  return { EResponseCode::S00_Success };
 }
 
-Omory::EApplicationCallback Omory::Application::Update()
+Omory::Response Omory::Application::Update()
 {
   auto ac = platform->LoopDevide();
   return ac;
@@ -35,14 +34,14 @@ void Omory::Application::Shutdown()
 
 void Omory::Application::Run()
 {
-  EApplicationCallback cb;
+  Response cb;
   cb = CreateDevice();
-  if(cb != EApplicationCallback::RUNNING){ return; }
+  if(cb.GetCodeHead() != EResponseCodeHead::Success){ return; }
   cb = Initialize();
-  if(cb != EApplicationCallback::RUNNING){ return; }
+  if(cb.GetCodeHead() != EResponseCodeHead::Success){ return; }
   do
   {
     Update();
-  }while(cb == EApplicationCallback::RUNNING);
+  }while(cb.responseCode == EResponseCode::S01_Continue);
   Shutdown();
 }

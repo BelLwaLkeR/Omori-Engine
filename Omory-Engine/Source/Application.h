@@ -2,15 +2,16 @@
 #include <Windows.h>
 #include <string>
 #include <Source/Core/Platform/APlatform.h>
+#include <Source/Type/Response.h>
 namespace Omory{
   class Application
   {
   public:
     Application();
     ~Application();
-    EApplicationCallback CreateDevice();
-    EApplicationCallback Initialize();
-    EApplicationCallback Update();
+    Response CreateDevice();
+    Response Initialize();
+    Response Update();
     void Shutdown();
     void Run();
 

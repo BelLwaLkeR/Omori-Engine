@@ -1,5 +1,5 @@
-#include <Source/Application.h>
-#include <Source/Core/Platform/Windows.h>
+#include <Application.h>
+#include <Core/Platform/Windows.h>
 
 Omory::Application::Application()
 {

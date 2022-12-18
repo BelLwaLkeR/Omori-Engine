@@ -1,6 +1,6 @@
 #pragma once
-#include <Source/Core/Platform/PlatformInfo.h>
-#include <Source/Type/Response.h>
+#include <Core/Platform/PlatformInfo.h>
+#include <Type/Response.h>
 
 namespace Omory
 {

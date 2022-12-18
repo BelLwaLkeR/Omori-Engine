@@ -8,30 +8,30 @@ namespace Omory {
   /// </summary>
   enum class EResponseCode
   {
-    // 未定義
-    O00_Undefined           = 0,
 
     // 続行
     //I00_Continue            = 100,
 
     // 成功
-    S00_Success             = 200,
+    S00_Success             = 100,
     // 続行
-    S01_Continue            = 201,
+    S01_Continue            = 101,
 
     // 何かのエラー
-    E00_AnythingError       = 300,
+    E00_AnythingError       = 200,
     // デバイスの何かのエラー
-    E10_DeviceAnythingError = 310,
+    E10_DeviceAnythingError = 210,
     // アプリケーションの何かのエラー
-    E20_ApplicationAnythingError = 310,
+    E20_ApplicationAnythingError = 210,
     // アプリケーションの何かのエラー
-    E21_ApplicationShutdownError = 310,
+    E21_ApplicationShutdownError = 210,
 
     // 何かの警告
-    W00_AnythingWorning     = 400,
+    W00_AnythingWorning     = 300,
     // デバイスの何かの警告
-    W10_DeviceAnythingError = 410,
+    W10_DeviceAnythingError = 310,
+    // 未定義
+    O90_Undefined           = 900,
     _END_
   };
 
@@ -45,11 +45,10 @@ namespace Omory {
   /// </summary>
   enum class EResponseCodeHead
   {
-    Other       = 0,
-    Infomation  = 1,
-    Success     = 2,
-    Error       = 3,
-    Worning     = 4,
+    Success     = 1,
+    Error       = 2,
+    Worning     = 3,
+    Other       = 9,
   };
 
   /// <summary>
@@ -59,24 +58,22 @@ namespace Omory {
   {
   public:
   // デフォルトコンストラクタでは未定義メッセージを返す。
-    Response()
-    :responseCode(EResponseCode::O00_Undefined), message("") {}
+    Response();
   
   // 応答コードを代入。
-    Response(EResponseCode code, const std::string& message = "")
-    :responseCode(code), message(message) {}
+    Response(EResponseCode code, const std::string& message = "");
 
-    EResponseCode responseCode = EResponseCode::O00_Undefined;
+    EResponseCode responseCode = EResponseCode::O90_Undefined;
     std::string message = "";
 
     /// <summary>
     /// 応答コードからどの種類の応答かを取得する
     /// </summary>
     /// <returns>応答の種類</returns>
-    EResponseCodeHead GetCodeHead()
-    {
-      int headNum = static_cast<int>(responseCode) / pow(10,RESPONSE_CODE_DIGITS-1);
-      return static_cast<EResponseCodeHead>(headNum);
-    }
+    EResponseCodeHead GetCodeHead() const;
+
+
+    bool IsOverWarningLevel(EResponseCodeHead thresholdLevel) const;
+    std::string ToString() const;
   };
 }

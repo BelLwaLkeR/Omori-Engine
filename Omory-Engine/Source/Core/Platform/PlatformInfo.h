@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <Source/Type/Rectangle.h>
+#include <Type/Rectangle.h>
 
 namespace Omory{
 	struct PlatformInfo

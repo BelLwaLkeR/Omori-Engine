@@ -1,5 +1,5 @@
 #pragma once
-#include <Source/Core/SmartPtr.h>
+#include <Core/SmartPtr.h>
 
 
 template<class T>

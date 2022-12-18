@@ -1,7 +1,7 @@
 #pragma once
 #include <Windows.h>
-#include <Source/Core/Platform/APlatform.h>
-#include <Source/Type/Response.h>
+#include <Core/Platform/APlatform.h>
+#include <Type/Response.h>
 
 namespace Omory
 {

@@ -41,7 +41,7 @@ void Omory::Application::Run()
   if(cb.GetCodeHead() != EResponseCodeHead::Success){ return; }
   do
   {
-    Update();
+    cb = Update();
   }while(cb.responseCode == EResponseCode::S01_Continue);
   Shutdown();
 }

@@ -20,7 +20,7 @@ bool Dx12Common::Setup()
 
   D3D_FEATURE_LEVEL featureLevels[] =
   {
-    D3D_FEATURE_LEVEL_12_2,
+//    D3D_FEATURE_LEVEL_12_2,
     D3D_FEATURE_LEVEL_12_1,
     D3D_FEATURE_LEVEL_12_0,
     D3D_FEATURE_LEVEL_11_1,

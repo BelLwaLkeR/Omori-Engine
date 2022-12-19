@@ -38,8 +38,9 @@ Omory::Response Omory::Windows::CreateDevice()
   wndClassEx.hCursor = LoadCursor(hInstance, IDC_ARROW);
   wndClassEx.hbrBackground = GetSysColorBrush(COLOR_BACKGROUND);
   wndClassEx.lpszMenuName = nullptr;
-  wndClassEx.lpszClassName = Str2LpCWstr(platformInfo.appName);
-  wndClassEx.hInstance = GetModuleHandle(nullptr);
+  wndClassEx.lpszClassName = TEXT("hogefuga");
+  //wndClassEx.lpszClassName = Str2LpCWstr(platformInfo.appName);
+  wndClassEx.hInstance = hInstance;
   if (!RegisterClassEx(&wndClassEx)) {
     return { EResponseCode::E00_AnythingError, "ウィンドウクラスが登録できませんでした。" };
   }

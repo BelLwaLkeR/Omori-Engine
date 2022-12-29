@@ -1,11 +1,14 @@
 #include "Rectangle.h"
+#include <assert.h>
 
-int Omory::Rectangle::width()
+unsigned int Omory::Rectangle::width() const
 {
-    return right - left;
+  assert(right > left);
+  return right - left;
 }
 
-int Omory::Rectangle::height()
+unsigned int Omory::Rectangle::height() const
 {
-    return bottom - top;
+  assert(bottom > top);
+  return bottom - top;
 }

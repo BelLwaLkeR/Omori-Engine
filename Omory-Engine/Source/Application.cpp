@@ -14,6 +14,8 @@ Omory::Response Omory::Application::CreateDevice()
 {
   platform = new Windows("", 1280, 720, 60);
   Response ac = platform->CreateDevice();
+  //TODO : d3d12CommonCreateDevice‚ğ‰½‚Æ‚©‚µ‚ÄŒÄ‚ÔB
+
   return ac;
 }
 

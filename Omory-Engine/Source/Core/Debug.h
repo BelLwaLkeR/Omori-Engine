@@ -11,7 +11,7 @@ namespace Omory
 		Debug(){}
 		~Debug(){}
 		void Print(const std::string& message);
-		void Print(const Omory::Response& response, bool assert = false, Omory::EResponseCodeHead assertThreshold = Omory::EResponseCodeHead::Other);
+		void Print(const Omory::Response& response, bool assert = false, Omory::EResponseCodeHead assertThreshold = Omory::EResponseCodeHead::Error);
 
 
 	private:

@@ -69,6 +69,8 @@ Omory::Response Omory::Windows::CreateDevice()
   SetFocus(hWindow);
   message = {};
 
+
+
   return { EResponseCode::S01_Continue };
 }
 

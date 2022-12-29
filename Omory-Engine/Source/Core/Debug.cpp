@@ -19,7 +19,7 @@ void Omory::Debug::Print(const Omory::Response& response, bool assert, Omory::ER
   if(assert)
   {
     assert(!response.IsOverWarningLevel(assertThreshold));
+    this->Print(response.ToString());
   }
-  this->Print(response.ToString());
 
 }

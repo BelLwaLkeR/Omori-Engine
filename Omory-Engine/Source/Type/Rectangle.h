@@ -14,8 +14,8 @@ namespace Omory {
     int right;
     int top;
     int bottom;
-    int width();
-    int height();
+    unsigned int width() const;
+    unsigned int height() const;
   private:
 
   };

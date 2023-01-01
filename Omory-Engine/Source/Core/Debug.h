@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <Core/Singleton.h>
+#include <Type/Singleton.h>
 #include <Type/Response.h>
 
 namespace Omory

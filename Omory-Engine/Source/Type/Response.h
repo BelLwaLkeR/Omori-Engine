@@ -71,9 +71,10 @@ namespace Omory {
     /// </summary>
     /// <returns>‰ž“š‚ÌŽí—Þ</returns>
     EResponseCodeHead GetCodeHead() const;
-
-
+    bool IsSuccess() const;
+    bool IsFailed() const;
     bool IsOverWarningLevel(EResponseCodeHead thresholdLevel) const;
+    bool IsLowerWarningLevel(EResponseCodeHead thresholdLevel) const;
     std::string ToString() const;
   };
 }

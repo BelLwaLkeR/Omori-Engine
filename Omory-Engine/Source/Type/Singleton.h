@@ -1,5 +1,5 @@
 #pragma once
-#include <Core/SmartPtr.h>
+#include <Type/SmartPtr.h>
 
 
 template<class T>
@@ -29,11 +29,11 @@ private:
 
 	const Singleton& operator=(const Singleton& other) {}
 	static void createInstance() {
-		m_pInstance = makeShared<T>();
+		m_pInstance = MakeShared<T>();
 		m_pInstance->initialize();
 	}
 
 };
 
 template<typename T>
-SharedPtr<T> Singleton<T>::m_pInstance =  makeShared<T>();
+SharedPtr<T> Singleton<T>::m_pInstance =  MakeShared<T>();

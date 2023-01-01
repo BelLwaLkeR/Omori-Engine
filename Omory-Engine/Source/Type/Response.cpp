@@ -19,12 +19,31 @@ Omory::EResponseCodeHead Omory::Response::GetCodeHead() const
   }
 }
 
+bool Omory::Response::IsSuccess() const
+{
+  return IsLowerWarningLevel(EResponseCodeHead::Success);
+}
+
+bool Omory::Response::IsFailed() const
+{
+  return IsOverWarningLevel(EResponseCodeHead::Error);
+}
+
 bool Omory::Response::IsOverWarningLevel(EResponseCodeHead thresholdLevel) const
 {
   int threshold = static_cast<int>(thresholdLevel);
   int level = static_cast<int>(GetCodeHead());
   return level >= threshold;
 }
+
+bool Omory::Response::IsLowerWarningLevel(EResponseCodeHead thresholdLevel) const
+{
+  int threshold = static_cast<int>(thresholdLevel);
+  int level = static_cast<int>(GetCodeHead());
+  return level <= threshold;
+}
+
+
 
 std::string Omory::Response::ToString() const
 {

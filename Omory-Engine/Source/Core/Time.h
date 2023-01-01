@@ -1,6 +1,6 @@
 #pragma once
 #include <chrono>
-#include <Core/Singleton.h>
+#include <Type/Singleton.h>
 
 class Time: public Singleton<Time>
 {

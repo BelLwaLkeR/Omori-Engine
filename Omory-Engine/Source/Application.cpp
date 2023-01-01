@@ -38,7 +38,7 @@ void Omory::Application::Run()
 {
   Response cb;
   cb = CreateDevice();
-  if(cb.GetCodeHead() != EResponseCodeHead::Success){ return; }
+  if(cb.IsFailed()){ return; }
   cb = Initialize();
   if(cb.GetCodeHead() != EResponseCodeHead::Success){ return; }
   do

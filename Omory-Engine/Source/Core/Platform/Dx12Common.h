@@ -18,6 +18,7 @@ namespace Omory{
   private:
    Response CreateDevice(ID3D12Device* device);
    Response CreateFactory(IDXGIFactory6* dxgiFactory);
+   
 
 
   private:

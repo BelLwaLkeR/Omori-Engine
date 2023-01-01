@@ -21,10 +21,10 @@
     <ClInclude Include="Source\Core\Time.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\Singleton.h">
+    <ClInclude Include="Source\Type\Singleton.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\SmartPtr.h">
+    <ClInclude Include="Source\Type\SmartPtr.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\ProcessManager.h">
@@ -33,7 +33,7 @@
     <ClInclude Include="Source\Process.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\Dx12Common.h">
+    <ClInclude Include="Source\Core\Platform\Dx12Common.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\Platform\PlatformInfo.h">
@@ -54,6 +54,9 @@
     <ClInclude Include="Source\Core\Debug.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Core\Platform\AGraphic.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -65,7 +68,7 @@
     <ClCompile Include="Source\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\Dx12Common.cpp">
+    <ClCompile Include="Source\Core\Platform\Dx12Common.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\Platform\Windows.cpp">

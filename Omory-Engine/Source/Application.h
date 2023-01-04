@@ -1,9 +1,12 @@
 #pragma once
 #include <Windows.h>
 #include <string>
-#include <Core/Platform/APlatform.h>
 #include <Type/Response.h>
+#include <Type/SmartPtr.h>
 namespace Omory{
+
+  class APlatform;
+
   class Application
   {
   public:
@@ -16,6 +19,6 @@ namespace Omory{
     void Run();
 
   private:
-    APlatform* platform;
+    UniquePtr<APlatform> platform;
   };
 }

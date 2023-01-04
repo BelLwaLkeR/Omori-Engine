@@ -1,5 +1,6 @@
 #include <Application.h>
-#include <Core/Platform/Windows.h>
+#include <Core/Platform/Windows/WindowsPlatform.h>
+#include <Core/Platform/APlatform.h>
 
 Omory::Application::Application()
 {
@@ -7,12 +8,11 @@ Omory::Application::Application()
 
 Omory::Application::~Application()
 {
-  delete platform;
 }
 
 Omory::Response Omory::Application::CreateDevice()
 {
-  platform = new Windows("", 1280, 720, 60);
+  platform = MakeUnique<WindowsPlatform>("", 1280, 720, 60);
   Response ac = platform->CreateDevice();
   //TODO : d3d12CommonCreateDeviceÇâΩÇ∆Ç©ÇµÇƒåƒÇ‘ÅB
 

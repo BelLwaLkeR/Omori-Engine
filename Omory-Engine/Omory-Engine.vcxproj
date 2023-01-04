@@ -143,11 +143,12 @@
   <ItemGroup>
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Core\Debug.h" />
-    <ClInclude Include="Source\Core\Platform\AGraphic.h" />
+    <ClInclude Include="Source\Core\Platform\DirectX12\Dx12Content.h" />
     <ClInclude Include="Source\Core\Platform\PlatformInfo.h" />
-    <ClInclude Include="Source\Core\Platform\Dx12Common.h" />
+    <ClInclude Include="Source\Core\Platform\DirectX12\Dx12Common.h" />
     <ClInclude Include="Source\Core\Platform\APlatform.h" />
-    <ClInclude Include="Source\Core\Platform\Windows.h" />
+    <ClInclude Include="Source\Core\Platform\Windows\WindowsContent.h" />
+    <ClInclude Include="Source\Core\Platform\Windows\WindowsPlatform.h" />
     <ClInclude Include="Source\ProcessManager.h" />
     <ClInclude Include="Source\Type\Singleton.h" />
     <ClInclude Include="Source\Type\SmartPtr.h" />
@@ -159,8 +160,9 @@
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Core\Debug.cpp" />
-    <ClCompile Include="Source\Core\Platform\Dx12Common.cpp" />
-    <ClCompile Include="Source\Core\Platform\Windows.cpp" />
+    <ClCompile Include="Source\Core\Platform\DirectX12\Dx12Common.cpp" />
+    <ClCompile Include="Source\Core\Platform\Windows\WindowsContent.cpp" />
+    <ClCompile Include="Source\Core\Platform\Windows\WindowsPlatform.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Core\Time.cpp" />
     <ClCompile Include="Source\Type\Rectangle.cpp" />

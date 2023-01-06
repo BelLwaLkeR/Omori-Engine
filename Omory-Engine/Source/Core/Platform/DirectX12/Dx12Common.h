@@ -1,25 +1,24 @@
 #pragma once
 #include <Type/Response.h>
 #include <Type/SmartPtr.h>
-//#include <Core/Platform/PlatformInfo.h>
 
+namespace Omory {
+  class PlatformInfo;
+  class WindowsContent;
+  class Dx12Content;
 
-class PlatformInfo;
-class WindowsContent;
-class Dx12Content;
-
-namespace Omory{
   class Dx12Common
   {
   public:
     Dx12Common();
     Dx12Common(const Dx12Common&);
     ~Dx12Common();
-    //Response Setup(const PlatformInfo& platformInfo, const WindowsContent& windowsContent);
+    Response Setup(const PlatformInfo& platformInfo, WeakPtr<WindowsContent> windowsContent);
+//    Response Setup( WindowsContent* windowsContent);
   private:
-   Response CreateDevice();
-   Response CreateFactory();
-   
+    Response CreateDevice();
+    Response CreateFactory();
+
 
 
   private:

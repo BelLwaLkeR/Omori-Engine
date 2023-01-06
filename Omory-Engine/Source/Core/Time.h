@@ -7,12 +7,12 @@ class Time: public Singleton<Time>
 public:
   float DeltaTime();
   bool WaitFPS();
-  void SetTargetFPS(int targetFPS);
+  void SetTargetFPS(unsigned int targetFPS);
 
 
 private:
   float actualFPS;
-  float targetFPS;
+  unsigned int targetFPS;
 
 
 };

@@ -5,15 +5,6 @@
 #include <Windows.h>
 
 
-//LRESULT Omory::WindowsPlatform::WindowsProcedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
-//{
-//  if (msg == WM_DESTROY)
-//  {
-//    PostQuitMessage(0);
-//    return 0;
-//  }
-//  return DefWindowProc(hwnd, msg, wparam, lparam);
-//}
 
 Omory::WindowsPlatform::WindowsPlatform(const std::string& title, int width, int height, int targetFps)
   :APlatform({{0, 0, width, height}, targetFps, title, title})
@@ -31,13 +22,21 @@ Omory::Response Omory::WindowsPlatform::CreateGameWindow()
   content->wndClassEx = {};
   content->wndClassEx.cbSize = sizeof(WNDCLASSEX);
   content->wndClassEx.style = CS_HREDRAW | CS_VREDRAW;
-  content->wndClassEx.lpfnWndProc = content->WindowsProcedure;
+  content->wndClassEx.lpfnWndProc = [](HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)->LRESULT
+  {
+    if (msg == WM_DESTROY)
+    {
+      PostQuitMessage(0);
+      return 0;
+    }
+    return DefWindowProc(hwnd, msg, wparam, lparam);
+  };
   content->wndClassEx.hIcon = LoadIcon(content->hInstance, IDI_APPLICATION);
   content->wndClassEx.hCursor = LoadCursor(content->hInstance, IDC_ARROW);
   content->wndClassEx.hbrBackground = GetSysColorBrush(COLOR_BACKGROUND);
   content->wndClassEx.lpszMenuName = nullptr;
   content->wndClassEx.lpszClassName = TEXT("hogefuga");
-  //wndClassEx.lpszClassName = Str2LpCWstr(platformInfo.appName);
+//  //wndClassEx.lpszClassName = Str2LpCWstr(platformInfo.appName);
   content->wndClassEx.hInstance = content->hInstance;
   if (!RegisterClassEx(&(content->wndClassEx))) {
     return { EResponseCode::E00_AnythingError, "ウィンドウクラスが登録できませんでした。" };
@@ -74,8 +73,9 @@ Omory::Response Omory::WindowsPlatform::CreateGameWindow()
 
 Omory::Response Omory::WindowsPlatform::CreateDx12Device()
 {
-  //dx12Common = MakeUnique<Dx12Common>();
-  //dx12Common->Setup(platformInfo,hWindow);
+  dx12Common = MakeUnique<Dx12Common>();
+  //WeakPtr<WindowsContent> wContent = content;
+  dx12Common->Setup(platformInfo, content);
   return Response();
 }
 
@@ -101,7 +101,8 @@ Omory::Response Omory::WindowsPlatform::CreateDevice()
   Response response;
   response = CreateGameWindow();
   if(response.IsFailed()){ return response; }
-  
+
+
 
 
   ShowWindow(content->hWindow, SW_SHOWNORMAL);

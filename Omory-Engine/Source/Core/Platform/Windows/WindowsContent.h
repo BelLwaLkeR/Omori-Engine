@@ -12,7 +12,6 @@ namespace Omory{
 		WNDCLASSEX wndClassEx;
 		HWND hWindow;
 		MSG message;
-		static LRESULT CALLBACK WindowsProcedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam){ return 0; }
 	private:
 
 	};

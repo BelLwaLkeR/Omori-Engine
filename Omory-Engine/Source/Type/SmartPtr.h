@@ -58,6 +58,7 @@ struct WeakPtr {
 	WeakPtr() : m_pPtr() {}
 
 	WeakPtr(const SharedPtr<T>& ptr) : m_pPtr(ptr) {}
+	WeakPtr(const UniquePtr<T>& ptr) { m_pPtr = ptr; }
 
 	//void Swap(WeakPtr<T>* ptr) {
 	//	m_pPtr.swap( ptr->m_pPtr );
@@ -103,11 +104,32 @@ struct WeakPtr {
 		return SharedPtr<T>(m_pPtr.lock());
 	}
 
+	//std::weak_ptr<T>& operator=(const SharedPtr<T>& ptr)
+	//{
+	//	m_pPtr = ptr;
+	//	return *this;
+	//}
+
 	WeakPtr<T>& operator=(const SharedPtr<T>& ptr) {
 		assert(ptr.get() != nullptr && "ƒƒ‚ƒŠ‚ªŠm•Û‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
 		m_pPtr = ptr;
 		return *this;
 	}
+
+	//std::weak_ptr<T>& operator=(const UniquePtr<T>& ptr) {
+	//	m_pPtr = ptr;
+	//	return *this;
+	//}
+
+	WeakPtr<T>& operator=(const UniquePtr<T>& ptr) {
+		assert(ptr.get() != nullptr && "ƒƒ‚ƒŠ‚ªŠm•Û‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+		m_pPtr = ptr;
+		return *this;
+	}
+
+
+
+
 
 	WeakPtr<T>& operator=(const WeakPtr<T>& ptr) {
 		m_pPtr = ptr.m_pPtr;

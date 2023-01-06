@@ -13,10 +13,10 @@ Omory::Application::~Application()
 Omory::Response Omory::Application::CreateDevice()
 {
   platform = MakeUnique<WindowsPlatform>("", 1280, 720, 60);
-  Response ac = platform->CreateDevice();
+  if(platform->CreateDevice().IsFailed()){ return { EResponseCode::E10_DeviceAnythingError, "" }; }
   //TODO : d3d12CommonCreateDevice‚ğ‰½‚Æ‚©‚µ‚ÄŒÄ‚ÔB
 
-  return ac;
+  return { EResponseCode::S00_Success };
 }
 
 Omory::Response Omory::Application::Initialize()

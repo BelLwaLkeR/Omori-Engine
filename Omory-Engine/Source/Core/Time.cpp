@@ -10,7 +10,7 @@ bool Time::WaitFPS()
     return false;
 }
 
-void Time::SetTargetFPS(int targetFPS)
+void Time::SetTargetFPS(unsigned int targetFPS)
 {
   if(targetFPS <=0){ return; }
   this->targetFPS = targetFPS;
